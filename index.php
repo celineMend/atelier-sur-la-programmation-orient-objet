@@ -1,5 +1,7 @@
 <?php
-interface
+interface Reparable{
+    public function reparer(); 
+}
 class Vehicule {
     public $couleur;
     public $type;
@@ -13,7 +15,23 @@ class Vehicule {
         echo "Ce véhicule de couleur $this->couleur et de type $this->type démarre.<br>";
     }
 }
-class Voiture extends Vehicule{
+class Moto extends Vehicule {
+    private $marque;
+    private $modele;
+    private $type_moto;
+    private $annee;
+    
+    public function __construct($marque, $modele, $type_moto, $annee) {
+        parent::__construct("noir", "moto"); // Initialise la couleur et le type de la moto
+
+        $this->marque = $marque;
+        $this->modele = $modele;
+        $this->type_moto = $type_moto;
+        $this->annee = $annee;
+    }
+
+}
+class Voiture extends Vehicule implements Reparable{
     //déclaration des propriétes public
     private $marque;
     private $modele;
@@ -36,7 +54,7 @@ public function klaxonner() {
     echo " La voiture klaxonne: Beep beep!<br>";
 }
 function demarrer (){
-    echo "cette voiture est de manque $this->marque et corolla comme $this->modele la voiture à un $this->kilometrage de 100000 et a été créer cette $this->annee";
+    echo "cette voiture est de manque $this->marque et corolla comme $this->modele la voiture à un $this->kilometrage de 100000 et a été créer cette $this->annee.";
  }
 
 public function getModele() {
@@ -57,9 +75,15 @@ Public function getAnnee(){
 public function setAnnee($annee) {
     $this->annee = $annee;
 }
- 
+public function reparer() {
+    echo "la voiture n'a pas besoin de réparation.";
+}
+
 }
 $Voiture1=new voiture("toyota", "modele","kilometrage","annee");
 $Voiture1->demarrer();
 $Voiture1->klaxonner();
+$Voiture1->reparer();
+$motoElectrique = new Moto("Noir", "Electrique", "600", 2020);
+$motoElectrique->demarrer();
 ?>
