@@ -1,10 +1,24 @@
 <?php
-class Voiture{
+interface
+class Vehicule {
+    public $couleur;
+    public $type;
+
+    public function __construct($couleur, $type) {
+        $this->couleur = $couleur;
+        $this->type = $type;
+    }
+
+    public function demarrer() {
+        echo "Ce véhicule de couleur $this->couleur et de type $this->type démarre.<br>";
+    }
+}
+class Voiture extends Vehicule{
     //déclaration des propriétes public
-    public $marque;
-    public $modele;
-    public $kilometrage;
-    public $annee;
+    private $marque;
+    private $modele;
+    private $kilometrage;
+    private $annee;
 
     public function __construct($marque, $modele ,$kilometrage ,$annee) {
         $this->marque = $marque;
@@ -18,8 +32,11 @@ public function getMarque() {
 public function setMarque($toyota) {
     $this->marque =$toyota ;
 }
+public function klaxonner() {
+    echo " La voiture klaxonne: Beep beep!<br>";
+}
 function demarrer (){
-    echo "cette voiture est de manque $this->marque et V8 comme $this->modele la voiture à un $this->kilometrage de 100 et a été créer cette $this->annee";
+    echo "cette voiture est de manque $this->marque et corolla comme $this->modele la voiture à un $this->kilometrage de 100000 et a été créer cette $this->annee";
  }
 
 public function getModele() {
@@ -42,50 +59,7 @@ public function setAnnee($annee) {
 }
  
 }
-class Vehicule {
-    public $couleur ;
-    public $type;
-
-    public function __construct($couleur, $type) {
-        $this->couleur = $couleur;
-        $this->type = $type;
-}
-Public function getCouleur(){
-        return $this->couleur ;
-}
-public function setCouleur($couleur) {
-        $this->couleur = $Couleur;
-}
-Public function getType(){
-    return $this->type ;
-}
-public function setType($type) {
-    $this->type = $type;
-}
-function demarrer (){
-    echo "cette vehicule est de $this->couleur et de $this->type voiture.";
-}
-
-}
-
-
-
-//class Voiture extends vehicule {
-   // public $couleur ;
-
-//function demarrer __construct($marque, $modele ,$kilometrage ,$annee ;$couleur) {
-    //$this->couleur = $couleur;
-    
-//}
-
-
-
-
-//}
-
-
-
 $Voiture1=new voiture("toyota", "modele","kilometrage","annee");
 $Voiture1->demarrer();
-
+$Voiture1->klaxonner();
 ?>
