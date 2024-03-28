@@ -42,7 +42,31 @@ public function setAnnee($annee) {
 }
  
 }
+class Vehicule {
+    public $couleur ;
+    public $type;
 
+    public function __construct($couleur, $type) {
+        $this->couleur = $couleur;
+        $this->type = $type;
+}
+Public function getCouleur(){
+        return $this->couleur ;
+}
+public function setCouleur($couleur) {
+        $this->couleur = $Couleur;
+}
+Public function getType(){
+    return $this->type ;
+}
+public function setType($type) {
+    $this->type = $type;
+}
+function demarrer (){
+    echo "cette vehicule est de $this->couleur et de $this->type voiture.";
+}
+
+}
 
 
 
