@@ -76,7 +76,7 @@ public function setAnnee($annee) {
     $this->annee = $annee;
 }
 public function reparer() {
-    echo "la voiture n'a pas besoin de réparation.";
+    echo "la voiture est en  réparation.";
 }
 
 }
